@@ -1,4 +1,4 @@
-# terraform-docker básico
+# terraform-docker básico (Ubuntu+Nginx)
 
 -Usar o Terraform para configurar e implantar contêineres do Docker. Usaremos o Docker para Windows afim de  mostrar como implantar um contêiner para testes/estudo.
 
