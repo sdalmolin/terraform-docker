@@ -12,12 +12,12 @@ provider "docker" {
   #host = "unix:///var/run/docker.sock" # Docker on ubuntu connection
 }
 
-# Creating a Docker Image ubuntu with the latest as the Tag.
+# Ultima Imagem com Tag "latest".
 resource "docker_image" "ubuntu" {
   name = "ubuntu:latest"
 }
 
-# Creating a Docker Container using the latest ubuntu image.
+# Criando Docker com Ubuntu.
 resource "docker_container" "webserver" {
   image             = docker_image.ubuntu.latest
   name              = "terraform-docker-test"
@@ -29,7 +29,7 @@ resource "docker_container" "webserver" {
     "/dev/null"
   ]
 }
-
+# Criando Docker com Nginx.
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
   keep_locally = false
@@ -48,7 +48,7 @@ resource "docker_network" "private_network" {
   name = "my_network"
 }
 
-# node should be a swarm manager. Use "docker swarm init" or "docker swarm join" to connect
+# Use "docker swarm init" ou "docker swarm join" para conectar.
 #resource "docker_secret" "foo" {
 #  name = "foo"
 #  data = base64encode("{\"foo\": \"s3cr3t\"}")
@@ -58,7 +58,7 @@ resource "docker_volume" "shared_volume" {
   name = "shared_volume"
 }
 
-#The source image must exist on the machine running the docker daemon.
+# A imagem deve existir na máquina que executa o daemon do docker.
 #resource "docker_tag" "tag" {
 #  source_image = "xxxx"
 #  target_image = "xxxx"
